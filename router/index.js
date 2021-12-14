@@ -6,7 +6,7 @@ const firestore = require("firebase/firestore");
 const db = firestore.getFirestore();
 
 router.get("/", (req, res) => {
-  const recipe = firestore.getDocs(firestore.collection(db, "blogposts"));
+  const recipe = firestore.getDocs(firestore.collection(db, "recipe"));
   const recipeArray = [];
 
   recipe
