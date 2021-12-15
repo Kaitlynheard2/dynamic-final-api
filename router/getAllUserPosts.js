@@ -5,11 +5,11 @@ const firestore = require("firebase/firestore");
 
 const db = firestore.getFirestore();
 
-router.get("/user/:id", (req, res) => {
-  const userId = req.params.id;
+router.get("/:id", (req, res) => {
+  const userID = req.params.id;
   const q = firestore.query(
     firestore.collection(db, "recipe"),
-    firestore.where("userId", "==", userId)
+    firestore.where("userID", "==", userID)
   );
 
   const querySnapshot = firestore.getDocs(q);
