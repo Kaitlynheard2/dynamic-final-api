@@ -12,12 +12,15 @@ router.get("/", (req, res) => {
   recipe
     .then((response) => {
       response.forEach((doc) => {
-        recipeArray.push(doc.data());
+        console.log(doc.id);
+        const docData = doc.data();
+        docData.id = doc.id;
+        recipeArray.push(docData);
       });
       return res.send(recipeArray);
     })
     .catch(function (error) {
-      console.log("Error", error);
+      console.log("Error:", error);
       return res.send(error);
     });
 });

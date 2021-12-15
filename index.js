@@ -17,7 +17,7 @@ firebase.initializeApp(firebaseConfig);
 
 const indexRoute = require("./router/index");
 const createPostRoute = require("./router/createPost");
-//const recipe = require("./router/recipe");
+const recipeRoute = require("./router/recipe");
 
 //corps
 app.use(function (req, res, next) {
@@ -38,8 +38,8 @@ app.use(function (req, res, next) {
 });
 
 app.use("/", indexRoute);
-app.use("/newPost", createPostRoute);
-//app.use("/recipe", recipe);
+app.use("/create", createPostRoute);
+app.use("/recipe", recipeRoute);
 
 app.listen(port, () => {
   console.log(`App is listening on port ${port}.`);
